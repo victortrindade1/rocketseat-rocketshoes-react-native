@@ -8,9 +8,10 @@ import {
   ProductList,
   ProductContainer,
   ProductImage,
-  ProductDescription,
+  ProductTitle,
   ProductPrice,
-  AddCartContainer,
+  AddCartButton,
+  AddCartText,
 } from './styles';
 
 export default class Home extends Component {
@@ -47,10 +48,12 @@ export default class Home extends Component {
           keyExtractor={(product) => String(product.id)}
           renderItem={({ item }) => (
             <ProductContainer>
-              <ProductImage />
-              <ProductDescription />
-              <ProductPrice />
-              <AddCartContainer />
+              <ProductImage source={{ uri: item.image }} />
+              <ProductTitle>{item.title}</ProductTitle>
+              <ProductPrice>{item.priceBRL}</ProductPrice>
+              <AddCartButton>
+                <AddCartText>ADICIONAR AO CARRINHO</AddCartText>
+              </AddCartButton>
             </ProductContainer>
           )}
         />

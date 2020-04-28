@@ -7,6 +7,8 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 
+import colors from './styles/colors';
+
 const Stack = createStackNavigator();
 
 const routes = () => {
@@ -17,6 +19,7 @@ const routes = () => {
         headerMode="screen"
         screenOptions={{
           header: ({ navigation }) => <Header navigation={navigation} />,
+          cardStyle: { backgroundColor: colors.dark },
         }}
       >
         <Stack.Screen name="Home" component={Home} />
