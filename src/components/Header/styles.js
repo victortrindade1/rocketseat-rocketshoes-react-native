@@ -27,6 +27,17 @@ export const LogoContainer = styled.TouchableOpacity`
   flex: 1;
 `;
 
-export const TextTeste = styled.Text`
+export const ItemCount = styled.Text`
+  position: absolute;
+  text-align: center;
+  top: -8px;
+  right: -8px;
+  min-width: 18px;
+  min-height: 18px;
+  background: ${colors.primary};
   color: #fff;
+  font-size: 12px;
+  padding: 2px;
+  border-radius: 9px;
+  overflow: hidden;
 `;
