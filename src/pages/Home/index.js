@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import api from '../../services/api';
 import { formatPriceBRL } from '../../util/format';
+
+import * as CartActions from '../../store/modules/cart/actions';
 
 import {
   Container,
@@ -14,7 +18,7 @@ import {
   AddCartText,
 } from './styles';
 
-export default class Home extends Component {
+class Home extends Component {
   state = {
     products: [],
   };
@@ -38,6 +42,23 @@ export default class Home extends Component {
     }
   };
 
+  handleAddProduct = (product) => {
+    const { addToCart } = this.props;
+
+    addToCart(product);
+  };
+
+  renderProduct = ({ item }) => (
+    <ProductContainer>
+      <ProductImage source={{ uri: item.image }} />
+      <ProductTitle>{item.title}</ProductTitle>
+      <ProductPrice>{item.priceBRL}</ProductPrice>
+      <AddCartButton onPress={() => this.handleAddProduct(item)}>
+        <AddCartText>ADICIONAR AO CARRINHO</AddCartText>
+      </AddCartButton>
+    </ProductContainer>
+  );
+
   render() {
     const { products } = this.state;
 
@@ -46,18 +67,14 @@ export default class Home extends Component {
         <ProductList
           data={products}
           keyExtractor={(product) => String(product.id)}
-          renderItem={({ item }) => (
-            <ProductContainer>
-              <ProductImage source={{ uri: item.image }} />
-              <ProductTitle>{item.title}</ProductTitle>
-              <ProductPrice>{item.priceBRL}</ProductPrice>
-              <AddCartButton>
-                <AddCartText>ADICIONAR AO CARRINHO</AddCartText>
-              </AddCartButton>
-            </ProductContainer>
-          )}
+          renderItem={this.renderProduct}
         />
       </Container>
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(CartActions, dispatch);
+
+export default connect(null, mapDispatchToProps)(Home);

@@ -26,3 +26,7 @@ export const BasketContainer = styled.TouchableOpacity`
 export const LogoContainer = styled.TouchableOpacity`
   flex: 1;
 `;
+
+export const TextTeste = styled.Text`
+  color: #fff;
+`;
