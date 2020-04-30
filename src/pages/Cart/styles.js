@@ -8,7 +8,7 @@ export const CartContainer = styled.View`
   padding: 10px;
 `;
 
-export const ProductList = styled.View``;
+export const ProductList = styled.FlatList``;
 
 export const Product = styled.View``;
 
@@ -81,4 +81,11 @@ export const AmountInput = styled.TextInput.attrs({
 export const AmountSubTotal = styled.Text`
   font-size: 16px;
   font-weight: bold;
+`;
+
+export const Separator = styled.View`
+  height: 1px;
+  width: 100%;
+  background-color: #ddd;
+  margin: 20px 0 20px 0;
 `;

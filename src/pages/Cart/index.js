@@ -22,55 +22,64 @@ import {
   AmountInputContainer,
   AmountInput,
   AmountSubTotal,
+  Separator,
 } from './styles';
 
 class Cart extends Component {
-  // AINDA NÃO SEI SE INTERFERE ABRIR UM STATE
-  // SÓ FIZ ISSO PQ O ESLINT TAVA RECLAMANDO
-  state = {};
+  renderProduct = (product) => {
+    // const { cart } = this.props;
+    console.tron.log(product);
+    return (
+      <Product>
+        <ProductContainer>
+          <ProductImage
+            source={{
+              uri: product.image,
+            }}
+          />
+          <DescriptionContainer>
+            <Description>{product.title}</Description>
+            <DescriptionPrice>{product.priceBRL}</DescriptionPrice>
+          </DescriptionContainer>
+          <ProductDeleteButton>
+            <Icon name="delete-forever" color={colors.primary} size={25} />
+          </ProductDeleteButton>
+        </ProductContainer>
+        <AmountContainer>
+          <AmountInputContainer>
+            <AmountButton>
+              <Icon
+                name="remove-circle-outline"
+                color={colors.primary}
+                size={25}
+              />
+            </AmountButton>
+            <AmountInput>1</AmountInput>
+            <AmountButton>
+              <Icon
+                name="add-circle-outline"
+                color={colors.primary}
+                size={25}
+              />
+            </AmountButton>
+          </AmountInputContainer>
+          <AmountSubTotal>R$179,00</AmountSubTotal>
+        </AmountContainer>
+      </Product>
+    );
+  };
 
   render() {
+    const { cart } = this.props;
+
     return (
       <CartContainer>
-        <ProductList>
-          <Product>
-            <ProductContainer>
-              <ProductImage
-                source={{
-                  uri:
-                    'https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg',
-                }}
-              />
-              <DescriptionContainer>
-                <Description>Tênis de Caminhada Leve Confortável</Description>
-                <DescriptionPrice>R$ 179,90</DescriptionPrice>
-              </DescriptionContainer>
-              <ProductDeleteButton>
-                <Icon name="delete-forever" color={colors.primary} size={25} />
-              </ProductDeleteButton>
-            </ProductContainer>
-            <AmountContainer>
-              <AmountInputContainer>
-                <AmountButton>
-                  <Icon
-                    name="remove-circle-outline"
-                    color={colors.primary}
-                    size={25}
-                  />
-                </AmountButton>
-                <AmountInput>1</AmountInput>
-                <AmountButton>
-                  <Icon
-                    name="add-circle-outline"
-                    color={colors.primary}
-                    size={25}
-                  />
-                </AmountButton>
-              </AmountInputContainer>
-              <AmountSubTotal>R$179,00</AmountSubTotal>
-            </AmountContainer>
-          </Product>
-        </ProductList>
+        <ProductList
+          data={cart}
+          keyExtractor={(product) => String(product.id)}
+          renderItem={({ item }) => this.renderProduct(item)}
+          ItemSeparatorComponent={() => <Separator />}
+        />
         {/* <TotalContainer />
         <SubmitButton /> */}
       </CartContainer>
@@ -78,7 +87,7 @@ class Cart extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({ cart: state.cart });
 
 // const mapDispatchToProps = dispatch =>
 //   bindActionCreators(Actions, dispatch);
