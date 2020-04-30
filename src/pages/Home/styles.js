@@ -3,11 +3,7 @@ import { darken } from 'polished';
 
 import colors from '../../styles/colors';
 
-export const Container = styled.View`
-  /* flex: 1; */
-  /* padding: 30px; */
-  background-color: ${colors.dark};
-`;
+export const Container = styled.View``;
 
 export const ProductList = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
