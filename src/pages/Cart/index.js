@@ -32,6 +32,18 @@ class Cart extends Component {
     removeFromCart(id);
   };
 
+  handleAmountDown = (product) => {
+    const { updateAmount } = this.props;
+
+    updateAmount(product.id, product.amount - 1);
+  };
+
+  handleAmountUp = (product) => {
+    const { updateAmount } = this.props;
+
+    updateAmount(product.id, product.amount + 1);
+  };
+
   renderProduct = (product) => {
     return (
       <Product>
@@ -53,15 +65,15 @@ class Cart extends Component {
         </ProductContainer>
         <AmountContainer>
           <AmountInputContainer>
-            <AmountButton>
+            <AmountButton onPress={() => this.handleAmountDown(product)}>
               <Icon
                 name="remove-circle-outline"
                 color={colors.primary}
                 size={25}
               />
             </AmountButton>
-            <AmountInput>1</AmountInput>
-            <AmountButton>
+            <AmountInput>{product.amount}</AmountInput>
+            <AmountButton onPress={() => this.handleAmountUp(product)}>
               <Icon
                 name="add-circle-outline"
                 color={colors.primary}
