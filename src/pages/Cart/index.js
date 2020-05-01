@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import * as CartActions from '../../store/modules/cart/actions';
 
 import colors from '../../styles/colors';
 
@@ -26,9 +26,13 @@ import {
 } from './styles';
 
 class Cart extends Component {
+  handleRemoveFromCart = (id) => {
+    const { removeFromCart } = this.props;
+
+    removeFromCart(id);
+  };
+
   renderProduct = (product) => {
-    // const { cart } = this.props;
-    console.tron.log(product);
     return (
       <Product>
         <ProductContainer>
@@ -41,7 +45,9 @@ class Cart extends Component {
             <Description>{product.title}</Description>
             <DescriptionPrice>{product.priceBRL}</DescriptionPrice>
           </DescriptionContainer>
-          <ProductDeleteButton>
+          <ProductDeleteButton
+            onPress={() => this.handleRemoveFromCart(product.id)}
+          >
             <Icon name="delete-forever" color={colors.primary} size={25} />
           </ProductDeleteButton>
         </ProductContainer>
@@ -89,10 +95,7 @@ class Cart extends Component {
 
 const mapStateToProps = (state) => ({ cart: state.cart });
 
-// const mapDispatchToProps = dispatch =>
-//   bindActionCreators(Actions, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(CartActions, dispatch);
 
-export default connect(
-  mapStateToProps
-  // mapDispatchToProps
-)(Cart);
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
