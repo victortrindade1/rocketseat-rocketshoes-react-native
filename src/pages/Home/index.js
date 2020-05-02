@@ -85,14 +85,15 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  amount: state.cart.reduce((amount, product) => {
-    // ainda não tenho amount... farei pelo saga
-    amount[product.id] = product.amount;
+const mapStateToProps = (state) => {
+  return {
+    amount: state.cart.reduce((amount, product) => {
+      amount[product.id] = product.amount;
 
-    return amount;
-  }, {}),
-});
+      return amount;
+    }, {}),
+  };
+};
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(CartActions, dispatch);

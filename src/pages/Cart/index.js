@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import * as CartActions from '../../store/modules/cart/actions';
+
+import { formatPriceBRL } from '../../util/format';
 
 import colors from '../../styles/colors';
 
@@ -81,7 +84,7 @@ class Cart extends Component {
               />
             </AmountButton>
           </AmountInputContainer>
-          <AmountSubTotal>R$179,00</AmountSubTotal>
+          <AmountSubTotal>{product.subtotal}</AmountSubTotal>
         </AmountContainer>
       </Product>
     );
@@ -105,7 +108,12 @@ class Cart extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ cart: state.cart });
+const mapStateToProps = (state) => ({
+  cart: state.cart.map((product) => ({
+    ...product,
+    subtotal: formatPriceBRL(product.price * product.amount),
+  })),
+});
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(CartActions, dispatch);

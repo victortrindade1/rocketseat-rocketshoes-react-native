@@ -10,7 +10,7 @@ export default function cart(state = [], action) {
         if (productIndex >= 0) {
           draft[productIndex].amount += 1;
         } else {
-          // First of this product in cart
+          // Acrescenta amount no state
           draft.push({
             ...action.product,
             amount: 1,
