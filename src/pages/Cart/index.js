@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Text } from 'react-native';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -26,6 +27,11 @@ import {
   AmountInput,
   AmountSubTotal,
   Separator,
+  TotalContainer,
+  TotalLabel,
+  TotalNumber,
+  SubmitButton,
+  SubmitText,
 } from './styles';
 
 class Cart extends Component {
@@ -91,7 +97,7 @@ class Cart extends Component {
   };
 
   render() {
-    const { cart } = this.props;
+    const { cart, total } = this.props;
 
     return (
       <CartContainer>
@@ -101,8 +107,13 @@ class Cart extends Component {
           renderItem={({ item }) => this.renderProduct(item)}
           ItemSeparatorComponent={() => <Separator />}
         />
-        {/* <TotalContainer />
-        <SubmitButton /> */}
+        <TotalContainer>
+          <TotalLabel>TOTAL</TotalLabel>
+          <TotalNumber>{total}</TotalNumber>
+        </TotalContainer>
+        <SubmitButton>
+          <SubmitText>FINALIZAR PEDIDO</SubmitText>
+        </SubmitButton>
       </CartContainer>
     );
   }
@@ -113,6 +124,12 @@ const mapStateToProps = (state) => ({
     ...product,
     subtotal: formatPriceBRL(product.price * product.amount),
   })),
+  total: formatPriceBRL(
+    state.cart.reduce(
+      (total, product) => total + product.price * product.amount,
+      0 // valor inicial
+    )
+  ),
 });
 
 const mapDispatchToProps = (dispatch) =>

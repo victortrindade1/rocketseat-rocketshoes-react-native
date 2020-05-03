@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
+import colors from '../../styles/colors';
 
 export const CartContainer = styled.View`
-  background-color: #fff;
+  background: #fff;
   border-radius: 4px;
   margin-left: 15px;
   margin-right: 15px;
@@ -88,4 +89,34 @@ export const Separator = styled.View`
   width: 100%;
   background-color: #ddd;
   margin: 20px 0 20px 0;
+`;
+
+export const TotalContainer = styled.View`
+  align-items: center;
+  padding: 40px 0 40px 0;
+`;
+
+export const TotalLabel = styled.Text`
+  color: #777;
+  font-weight: bold;
+  font-size: 16px;
+`;
+
+export const TotalNumber = styled.Text`
+  font-size: 34px;
+  font-weight: bold;
+`;
+
+export const SubmitButton = styled.TouchableOpacity`
+  background: ${colors.primary};
+  border-radius: 4px;
+  /* width: 100%; */
+  align-items: center;
+`;
+
+export const SubmitText = styled.Text`
+  color: #fff;
+  font-size: 16px;
+  padding: 15px 0 15px 0;
+  font-weight: bold;
 `;
