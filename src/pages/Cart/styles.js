@@ -120,3 +120,13 @@ export const SubmitText = styled.Text`
   padding: 15px 0 15px 0;
   font-weight: bold;
 `;
+
+export const EmptyCartContainer = styled.View`
+  align-items: center;
+`;
+
+export const EmptyMsg = styled.Text`
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px 0 0 0;
+`;

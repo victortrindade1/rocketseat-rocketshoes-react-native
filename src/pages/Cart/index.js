@@ -32,6 +32,8 @@ import {
   TotalNumber,
   SubmitButton,
   SubmitText,
+  EmptyCartContainer,
+  EmptyMsg,
 } from './styles';
 
 class Cart extends Component {
@@ -96,24 +98,36 @@ class Cart extends Component {
     );
   };
 
+  // renderEmptyCart = () => <EmptyCart />;
+
   render() {
     const { cart, total } = this.props;
 
+    // console.tron.log(cart.length);
     return (
       <CartContainer>
-        <ProductList
-          data={cart}
-          keyExtractor={(product) => String(product.id)}
-          renderItem={({ item }) => this.renderProduct(item)}
-          ItemSeparatorComponent={() => <Separator />}
-        />
-        <TotalContainer>
-          <TotalLabel>TOTAL</TotalLabel>
-          <TotalNumber>{total}</TotalNumber>
-        </TotalContainer>
-        <SubmitButton>
-          <SubmitText>FINALIZAR PEDIDO</SubmitText>
-        </SubmitButton>
+        {cart.length ? (
+          <>
+            <ProductList
+              data={cart}
+              keyExtractor={(product) => String(product.id)}
+              renderItem={({ item }) => this.renderProduct(item)}
+              ItemSeparatorComponent={() => <Separator />}
+            />
+            <TotalContainer>
+              <TotalLabel>TOTAL</TotalLabel>
+              <TotalNumber>{total}</TotalNumber>
+            </TotalContainer>
+            <SubmitButton>
+              <SubmitText>FINALIZAR PEDIDO</SubmitText>
+            </SubmitButton>
+          </>
+        ) : (
+          <EmptyCartContainer>
+            <Icon name="remove-shopping-cart" color="#ccc" size={80} />
+            <EmptyMsg>Seu carrinho está vazio</EmptyMsg>
+          </EmptyCartContainer>
+        )}
       </CartContainer>
     );
   }
