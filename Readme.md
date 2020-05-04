@@ -7,4 +7,8 @@ QND EU TERMINAR O CURSO, EU VOU DIMINUIR NO BECK!
 Configurar o saga
 Fazer request pra API do produto qnd adiciona
 redirecionar para o carrinho
-Fazer e aplicar page de carrinho vazio
+Consultar estoque
+
+OBS:
+Eu agora vou só precisar do id na request, pq me satisfará na request pra q eu
+tenha os outros detalhes do produto.
