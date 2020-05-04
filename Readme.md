@@ -4,7 +4,9 @@ Código: https://github.com/Rocketseat/bootcamp-gostack-desafio-07
 
 O q vou fazer:
 QND EU TERMINAR O CURSO, EU VOU DIMINUIR NO BECK!
-Configurar o saga
+
+Vou fazer todos os reducers no saga
+
 Fazer request pra API do produto qnd adiciona
 redirecionar para o carrinho
 Consultar estoque
