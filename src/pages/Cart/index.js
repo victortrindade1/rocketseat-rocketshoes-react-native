@@ -44,15 +44,15 @@ class Cart extends Component {
   };
 
   handleAmountDown = (product) => {
-    const { updateAmount } = this.props;
+    const { updateAmountRequest } = this.props;
 
-    updateAmount(product.id, product.amount - 1);
+    updateAmountRequest(product.id, product.amount - 1);
   };
 
   handleAmountUp = (product) => {
-    const { updateAmount } = this.props;
+    const { updateAmountRequest } = this.props;
 
-    updateAmount(product.id, product.amount + 1);
+    updateAmountRequest(product.id, product.amount + 1);
   };
 
   renderProduct = (product) => {
