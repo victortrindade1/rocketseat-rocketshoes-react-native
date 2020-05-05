@@ -6,8 +6,8 @@ Código: https://github.com/Rocketseat/bootcamp-gostack-desafio-07
 
 Falta redirecionar p/ o carrinho no momento de adicionar.
 
-Lib do curso: react-navigation 4x
-Lib do app: react-navigation 5x
+- Lib do curso: react-navigation 4x
+- Lib do app: react-navigation 5x
 
 # Motivo:
 
