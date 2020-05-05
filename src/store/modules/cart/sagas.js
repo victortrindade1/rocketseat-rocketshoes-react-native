@@ -1,7 +1,7 @@
 import { Alert } from 'react-native';
 import { call, all, takeLatest, put, select } from 'redux-saga/effects';
 // import NavigationService from '../../../services/navigation';
-import { CommonActions } from '@react-navigation/native';
+// import { CommonActions } from '@react-navigation/native';
 
 import api from '../../../services/api';
 import { formatPriceBRL } from '../../../util/format';

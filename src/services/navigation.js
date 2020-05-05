@@ -1,4 +1,4 @@
-import { CommonActions, StackActions } from '@react-navigation/native';
+import { CommonActions } from '@react-navigation/native';
 
 let navigator;
 
@@ -16,13 +16,7 @@ function navigate(routeName, params) {
   );
 }
 
-// Navegação sem botão de voltar
-function replace(name) {
-  navigator.dispatch(StackActions.replace(name));
-}
-
 export default {
   setNavigator,
   navigate,
-  replace,
 };
