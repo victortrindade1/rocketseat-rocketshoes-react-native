@@ -6,4 +6,3 @@ O q vou fazer:
 QND EU TERMINAR O CURSO, EU VOU DIMINUIR NO BECK!
 
 redirecionar para o carrinho
-Consultar estoque
