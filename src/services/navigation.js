@@ -6,14 +6,19 @@ function setNavigator(ref) {
   navigator = ref;
 }
 
+// // Navegação comum
+// function navigate(routeName, params) {
+//   navigator.dispatch(
+//     CommonActions.navigate({
+//       routeName,
+//       params,
+//     })
+//   );
+// }
+
 // Navegação comum
 function navigate(routeName, params) {
-  navigator.dispatch(
-    CommonActions.navigate({
-      routeName,
-      params,
-    })
-  );
+  navigator.dispatch(CommonActions.navigate(routeName, params));
 }
 
 export default {

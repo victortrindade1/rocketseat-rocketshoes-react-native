@@ -38,7 +38,6 @@ class Home extends Component {
         ...product,
         priceBRL: formatPriceBRL(product.price),
       }));
-
       this.setState({ products: data });
     } catch (error) {
       console.tron.error(error.response.data);

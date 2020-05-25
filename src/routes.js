@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+// import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Header from './components/Header';
@@ -13,19 +13,17 @@ const Stack = createStackNavigator();
 
 const routes = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Home"
-        headerMode="screen"
-        screenOptions={{
-          header: ({ navigation }) => <Header navigation={navigation} />,
-          cardStyle: { backgroundColor: colors.dark },
-        }}
-      >
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Cart" component={Cart} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator
+      initialRouteName="Home"
+      headerMode="screen"
+      screenOptions={{
+        header: ({ navigation }) => <Header navigation={navigation} />,
+        cardStyle: { backgroundColor: colors.dark },
+      }}
+    >
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Cart" component={Cart} />
+    </Stack.Navigator>
   );
 };
 export default routes;

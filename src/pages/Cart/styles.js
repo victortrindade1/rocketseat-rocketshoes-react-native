@@ -9,7 +9,9 @@ export const CartContainer = styled.View`
   padding: 10px;
 `;
 
-export const ProductList = styled.FlatList``;
+export const ProductList = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false,
+})``;
 
 export const Product = styled.View``;
 
