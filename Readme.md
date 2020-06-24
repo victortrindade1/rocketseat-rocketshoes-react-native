@@ -2,7 +2,9 @@
 
 Código: https://github.com/Rocketseat/bootcamp-gostack-desafio-07
 
-# Pendência:
+# Pendência [RESOLVIDO]:
+
+> Resolução: https://skylab.rocketseat.com.br/h/forum/bootcamp/d72fcaaa-b26a-4991-a0f1-7a9fea098c22
 
 Falta redirecionar p/ o carrinho no momento de adicionar.
 
